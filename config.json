@@ -1,0 +1,32 @@
+{
+  "name": "USB NAS",
+  "version": "1.0.0",
+  "slug": "usb_nas",
+  "description": "Automatically mounts two USB drives and shares them via Samba",
+  "url": "https://github.com/your-repo/usb-nas",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "before",
+  "boot": "auto",
+  "init": false,
+  "host_network": true,
+  "privileged": ["SYS_ADMIN"],
+  "map": ["config:rw", "share:rw", "addons:rw"],
+  "options": {
+    "usb1_mount": "/mnt/usb1",
+    "usb2_mount": "/mnt/usb2",
+    "samba_username": "homeassistant",
+    "samba_password": "password",
+    "workgroup": "WORKGROUP",
+    "share_name1": "USB-1",
+    "share_name2": "USB-2"
+  },
+  "schema": {
+    "usb1_mount": "str",
+    "usb2_mount": "str",
+    "samba_username": "str",
+    "samba_password": "str",
+    "workgroup": "str",
+    "share_name1": "str",
+    "share_name2": "str"
+  }
+}
